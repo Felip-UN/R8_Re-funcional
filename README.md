@@ -73,8 +73,51 @@ timer:  0.005732297897338867
 ```
 ## *args
 
+
+
 ### arg 1
-#### Tabla de un numero fijo por 4 valores diferentes (o iguales si lo deseas :/)
+El punto esta en el circulo?
+```python
+import time
+
+start_time = time.time()
+
+def punto_en_c(*args)-> int:
+  circulo=(0,0,5)
+  d_cuadrada=((args[0] - circulo[0])**2 + (args[1] - circulo[1])**2)
+  if d_cuadrada<circulo[2]**2:
+    return ("Tu punto marcado se encuentra dentro del circulo")
+  elif d_cuadrada==circulo[2]**2:
+    return ("Tu punto está sobre el borde del círculo")
+  else:
+    return ("Tu punto marcado esta fuera del circulo")
+
+x1=1
+y1=3
+print(f"Punto 1: {x1},{y1}")
+salida=punto_en_c(x1,y1)
+print(salida)
+x2=5
+y2=6
+print(f"Punto 2: {x2},{y2}")
+salida1=punto_en_c(x2, y2)
+print(salida1)
+end_time = time.time()
+
+timer = end_time - start_time
+print("timer: ",timer)
+```
+**Salida de consola:**
+```python
+Punto 1: 1,3
+Tu punto marcado se encuentra dentro del circulo
+Punto 2: 5,6
+Tu punto marcado esta fuera del circulo
+timer:  0.0010387897491455078
+```
+
+### arg 2
+Tabla de un numero fijo por 4 valores diferentes (o iguales si lo deseas :/)  tuve una idea mas clara al ver esta pagina: [Uso de *args y **kwargs](https://python-intermedio.readthedocs.io/es/latest/args_and_kwargs.html)
 ```python
 import time
 def tabla_de(fijo, *multiple):
