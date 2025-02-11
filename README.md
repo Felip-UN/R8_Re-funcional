@@ -71,9 +71,68 @@ Un cono de radio {4} y altura {5} tiene un volumen de 83.77580409572782
 Un rectangulo de altura 4 y ancho 5 tiene un area de 20
 timer:  0.005732297897338867
 ```
+## *args
 
-## Perfiles:
+### arg 1
+#### Tabla de un numero fijo por 4 valores diferentes (o iguales si lo deseas :/)
+```python
+import time
+def tabla_de(fijo, *multiple):
+  for num in multiple:
+    print(f"{fijo} x {num} = {fijo*num}")
+
+if __name__=="__main__":
+  num=int(input("Que numero quieres probar?: "))
+  print("probemos con cuatro numeros:")
+  n=input("ingresa 4 numeros separados por 1 espacio: ")
+  start_time = time.time()
+  numeros=list(map(int, n.split(" "))) #transformar la cadena "n" en una lista de 4 valores
+  n1=numeros[0]
+  n2=numeros[1]
+  n3=numeros[2]
+  n4=numeros[3]
+  tabla=tabla_de(num, n1, n2, n3, n4)
+  print(tabla)
+
+  end_time = time.time()
+
+  timer = end_time - start_time
+  print("timer: ",timer)
+```
+**Salida de consola:**
+```python
+Que numero quieres probar?: 5
+probemos con cuatro numeros:
+ingresa 4 numeros separados por 1 espacio: 3 4 5 6
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+None
+timer:  0.0002117156982421875
+```
+Nota: no se porque salio el "None" XD
+
+## Recursiva (WHY?!)
+En este caso este fue el mas complicado, aun sigo confundido frente al uso de estas pero aqui hay un programa que hcae el trabajo :/
+```python
+def potencia(base, exponente):
+  if exponente == 0:# cualquier número elevado a 0 es 1
+      return 1
+  
+  else:
+      return base * potencia(base, exponente - 1) #Caso recursivo: a^b = a * a^(b-1)
+
+resultado = potencia(2, 3)
+print(resultado)  # Debería imprimir 8 (2^3)
+
+```
+**Salida de consola:**
+8
+
+## Enlaces Perfiles:
 ### Stack overflow
+![stack_check](https://github.com/user-attachments/assets/e4f2f06f-f502-413f-83ce-cb2619cc6111)
 
 [stack overflow](https://stackoverflow.com/users/29560901/felip-d1)
 
